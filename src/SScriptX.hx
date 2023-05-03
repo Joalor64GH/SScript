@@ -13,11 +13,14 @@ import sys.io.File;
 	SScript will already have a SScriptX instance so don't use this class.
 **/
 @:access(ex.InterpEx)
+@:access(SScript)
 class SScriptX
 {
 	@:noPrivateAccess static var variables:Map<String, Dynamic> = new Map();
 
 	static var NONE(default, null):Array<Exception> = new Array();
+
+	@:noPrivateAccess var script:SScript;
 
 	/**
 		An unique interpreter for this instance of `SScriptX`.

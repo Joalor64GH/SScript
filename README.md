@@ -58,7 +58,7 @@ var randomNumber:Float = script.call('returnRandom').returnValue;
 ```
 
 ## Using classes with SScript
-SScript has 2 modes: Ex and Normal. 
+SScript has 2 modes: **Ex** and **Normal**. 
 If SScript has been created with a class, it will automatically switch to Ex mode. Ex mode allows only 3 expressions: imports, package and classes. 
 
 So a script like this isn't valid in Ex mode:
@@ -101,6 +101,7 @@ class Main
 	static function main()
 	{
 		var script:SScript = new SScript("script.hx");
+		// trace(scriptX.exMode); // You can check if script succesfully switched to Ex mode.
 		var c = script.call('overrideThis', 'Child'); // You need to specify the Child class, if it isn't specified SScript will call the function from ParentClass
 		trace(c);
 	}
@@ -126,7 +127,7 @@ class Main {
 		script.setClass(ParentClass);
 		script.setClassString('ParentClass');
 		script.doString("
-				class Child extends Parent
+				class Child extends ParentClass
 				{
 					override function overrideThis()
 					{
@@ -195,3 +196,6 @@ It is recommended to override only `preset`, other functions were not written wi
 6. `currentScriptClass` changes based on `currentClass`, it is not an actual class but it is an abstract containing useful variables like `listFunctions` and more.
 
 7. `currentSuperClass` is the actual parent class of `currentScriptClass`. It's type is `Class<Dynamic>`.
+
+## Contact
+If you have any questions or requests, open an issue here or message me on my Discord (tahir#5885).

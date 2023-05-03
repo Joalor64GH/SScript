@@ -15,9 +15,10 @@ class InterpEx extends hscriptBase.Interp
 	private var _proxy:AbstractScriptClass = null;
 	var origin:String = "SScriptX";
 
+	var changedClasses:Map<String, Array<String>> = new Map();
+
 	public function new(proxy:AbstractScriptClass = null, ?push = true)
 	{
-		super.binops;
 		super();
 		_proxy = proxy;
 		variables.set("Type", Type);
@@ -277,7 +278,7 @@ class InterpEx extends hscriptBase.Interp
 					}
 					else
 						this.pkg = path[0];
-				case DImport(path, _):
+				case DImport(path, _, asIdent):
 					var last = path[path.length - 1];
 					imports.set(last, path);
 				case DClass(c):

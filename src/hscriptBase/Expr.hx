@@ -139,7 +139,7 @@ enum Error {
 
 enum ModuleDecl {
 	DPackage( path : Array<String> );
-	DImport( path : Array<String>, ?everything : Bool );
+	DImport( path : Array<String>, ?everything : Bool , ?asIdent : String );
 	DClass( c : ClassDecl );
 	DTypedef( c : TypeDecl );
 }

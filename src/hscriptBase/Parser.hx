@@ -1588,8 +1588,18 @@ class Parser {
 					unexpected(t);
 				}
 			}
-			ensure(TStatement);
-			return DImport(path, star);
+			var id=null;
+			/*var t = token();
+			switch t{
+				case TStatement:
+				case TId(s): 
+					if(s!='as')
+						error(ECustom('Unexpected $s'));
+					id = getIdent();
+				case _: error(EUnexpected(tokenString(t)));
+			}*/
+			ensureToken(TStatement);
+			return DImport(path, star, id);
 		case "class":
 			var name = getIdent();
 			var params = parseParams();
